@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <title>New Todo-App</title>
   </head>
   <body>
@@ -19,8 +20,21 @@
           <button class="filter-todos">Pending</button>
           <button class="filter-todos">Completed</button>
         </div>
-        <button>Delete All</button>
+        <button id="delete-all-button">Delete All</button>
       </div>
+    </div>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
     <script src="./js/index.js"></script>
   </body>
