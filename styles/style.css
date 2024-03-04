@@ -111,11 +111,11 @@ tbody td button {
 }
 
 tbody td button:nth-child(1) {
-  background-color: var(--color-warning);
+  background-color: var(--color-success);
 }
 
 tbody td button:nth-child(2) {
-  background-color: var(--color-success);
+  background-color: var(--color-warning);
 }
 
 tbody td button:nth-child(3) {

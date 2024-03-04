@@ -43,7 +43,9 @@ const displayTodos = () => {
         <td>${todo.date || "No Date"}</td>
         <td>${todo.completed ? "Completed" : "Pending"}</td>
         <td>
-        <button>Done</button>
+        <button onclick="toggleHandler('${todo.id}')">
+            ${todo.completed ? "Do" : "Undo"}
+        </button>
         <button>Edit</button>
         <button onclick="deleteHandler('${todo.id}')">Delete</button>
         </td>
@@ -71,6 +73,14 @@ const taskHandler = () => {
   } else {
     showAlert("Please define a todo!", "error");
   }
+};
+
+const toggleHandler = (id) => {
+  const todo = todos.find((todo) => todo.id === id);
+  todo.completed = !todo.completed;
+  saveToLocalStorage();
+  displayTodos();
+  showAlert("Todo status changed successfully", "success");
 };
 
 const deleteHandler = (id) => {
