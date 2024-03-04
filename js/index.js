@@ -3,7 +3,17 @@ const dateInput = document.getElementById("date-input");
 const addButton = document.getElementById("add-button");
 const alertMassage = document.getElementById("alert-massage");
 
-const todos = [];
+const todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+const generateId = () => {
+  return Math.round(
+    Math.random() * Math.random() * Math.pow(10, 15)
+  ).toString();
+};
+
+const saveToLocalStorage = () => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+};
 
 const showAlert = (massage, type) => {
   alertMassage.innerHTML = "";
@@ -20,15 +30,21 @@ const showAlert = (massage, type) => {
 const taskHandler = () => {
   const task = taskInput.value;
   const date = dateInput.value;
-  const todo = { task: task, date: date, completed: false };
+  const todo = {
+    id: generateId(),
+    task,
+    date,
+    completed: false,
+  };
   if (task) {
     todos.push(todo);
+    saveToLocalStorage();
     taskInput.value = "";
     dateInput.value = "";
     showAlert("Todo added successfully", "success");
-    console.log(todos);
   } else {
     showAlert("Please define a todo!", "error");
   }
 };
+
 addButton.addEventListener("click", taskHandler);
