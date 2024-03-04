@@ -3,8 +3,9 @@ const dateInput = document.getElementById("date-input");
 const addButton = document.getElementById("add-button");
 const alertMassage = document.getElementById("alert-massage");
 const todosBody = document.querySelector("tbody");
+const deleteAllButton = document.getElementById("delete-all-button");
 
-const todos = JSON.parse(localStorage.getItem("todos")) || [];
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
 const generateId = () => {
   return Math.round(
@@ -72,4 +73,17 @@ const taskHandler = () => {
   }
 };
 
+const deleteAllHandler = () => {
+  if (todos.length) {
+    todos = [];
+    saveToLocalStorage();
+    displayTodos();
+    showAlert("All todos cleared successfully", "success");
+  } else {
+    showAlert("Nothing to delete", "error");
+  }
+};
+
+window.addEventListener("load", displayTodos());
 addButton.addEventListener("click", taskHandler);
+deleteAllButton.addEventListener("click", deleteAllHandler);

@@ -101,7 +101,7 @@ thead th:last-child {
 
 tbody td {
   background-color: var(--color-task);
-  pad: 5px 10px;
+  padding: 5px 10px;
   text-align: center;
 }
 
