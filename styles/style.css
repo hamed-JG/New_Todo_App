@@ -102,6 +102,7 @@ thead th:last-child {
 tbody td {
   background-color: var(--color-task);
   padding: 5px 10px;
+  width: 5%;
   text-align: center;
 }
 
@@ -112,6 +113,7 @@ tbody td button {
 
 tbody td button:nth-child(1) {
   background-color: var(--color-success);
+  width: 45px;
 }
 
 tbody td button:nth-child(2) {
@@ -142,4 +144,8 @@ tbody td button:nth-child(3) {
 
 .alert-error {
   background-color: var(--color-error);
+}
+
+#edit-button {
+  display: none;
 }
